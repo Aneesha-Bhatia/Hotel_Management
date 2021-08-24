@@ -1,0 +1,43 @@
+{% extends 'home.html' %}
+{% load static %}
+
+{% block bgimage %}
+<img src="{% static 'cust2.jpg' %}" alt="customer" style="width:100%; height: 600px;">
+{% endblock %}
+
+{% block heading %}
+
+{% endblock %}
+
+{% block list %}
+{% endblock %}
+
+{% block content2 %} 
+    <br><br>
+    <div><center>
+    <a href="{% url 'customerlist' %}"><button class="btn"><i class="fas fa-list-alt"></i><b> CUSTOMER'S LIST</b></button></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="{% url 'room' %}"><button class="btn"><i class="fas fa-person-booth"></i>&nbsp;<b>BOOK YOUR ROOM HERE</b></button></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+    <br>
+
+    <center>   
+        <div style="background-color:pink; height: 100px; width: 50%;">&nbsp;
+         <h1 style="color:black">Add Customers</h1>
+        </div>
+    </center>  
+    <center>
+        <div style="height: 550px; width: 50%; background-color:tomato;">
+            <br><br>
+            <form method="POST"  style="text-align: center;" enctype='multipart/form-data'>
+            {% csrf_token %}
+                {{form.as_p}}
+                   
+                <br><center><button type='sumbit' style="background-color:grey">CONFIRM</button></center>
+
+            </form>
+        </div>
+    </center> 
+
+    
+
+{% endblock %}

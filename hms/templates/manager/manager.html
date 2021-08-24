@@ -1,0 +1,45 @@
+{% extends 'home.html' %}
+{% load static %}
+
+{% block heading %}
+
+{% endblock %}
+
+{% block bgimage %}
+<img src="{%  static 'manager\mg2.jpg'  %}" alt="manager" height="400" width="100%">
+{% endblock %}
+
+
+
+{% block list %}
+{% endblock %}
+
+{% block content2 %} 
+    <br><br>
+    <div> <center>
+    <a href="{% url 'managerlist' %}"><button class="btn"><i class="fas fa-list-alt"></i><b> MANAGER'S LIST</b></button></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="{% url 'customer' %}"><button class="btn"><i class="fas fa-hotel"></i>&nbsp;<b>BOOK YOUR ROOM HERE</b></button></a>&nbsp;&nbsp;<br><br></center>
+    </div>
+
+    <center>   
+        <div style="background-color:pink; height: 100px; width: 50%;">
+          <br><h1 style="text-align:center;">Add Managers</h1>
+        </div>
+    </center>  
+    <center>
+        <div style="height: 550px; width: 50%; background-color:tomato">
+            <br><br>
+            <form method="POST"  style="text-align: center;" enctype='multipart/form-data'>
+            {% csrf_token %}
+                {{form.as_p}}
+                   
+                <br><center><button type='sumbit' style="background-color:grey">SAVE</button></center>
+
+            </form>
+        </div>
+    </center> 
+
+    
+  
+    
+{% endblock %}

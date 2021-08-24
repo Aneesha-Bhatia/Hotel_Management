@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    
+    
+    <style>
+        * {
+          box-sizing:initial;
+        }
+        
+        body {
+          font-family: Georgia, 'Times New Roman', Times, serif;
+          font-size: 20px;
+        }
+        
+        .container {
+          position: relative;
+          max-width: 100%;
+          margin: 2 auto;
+        }
+        
+        .container img {vertical-align: middle;}
+        
+        .container .content {
+          position: absolute;
+          top: 0;
+          background: rgba(110, 82, 63, 0.01); 
+          color: plum;
+          width: 100%;
+          padding: 30px;
+          text-align: center;
+          font-size: 40px;
+          color: rgb(34, 32, 32);
+          font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+          font-weight: bolder;
+        }
+
+        .btn {
+            background-color:wheat;
+            border:rosybrown;
+            color: black;
+            padding: 16px 16px;
+            font-size: 16px;
+            cursor:pointer;
+            }
+        .btn:hover {
+            background-color:peru;
+        }
+       
+        </style>
+</head>
+<body>
+    <div style="background-color:pink">   
+        <a href="{% url 'home' %}"><button class="btn"><i class="fa fa-home"></i><b>Home</b></button></a>&nbsp;&nbsp;
+        <a href="{% url 'manager' %}"><button class="btn"><i class="fas fa-hat-cowboy"></i><b> Manager</b></button></a>&nbsp;&nbsp;
+        <a href="{% url 'customer' %}"><button class="btn"><i class="fas fa-user-check"></i><b>  Customer</b></button></a>&nbsp;&nbsp;
+    </div> 
+      <div class='container'>
+        {% block bgimage %}<img src="media\home.jpg" height="800" width="100%">{% endblock %}
+        
+        <div class="content">
+          {% block heading %}<i><h1>Welcome<i class="fas fa-walking"></i>&nbsp;&nbsp;To Hotel Sunshine</h1></i>{% endblock %}
+          {% block list %}<br><br>
+          <a href="{% url 'manager' %}"><button class="btn"><i class="fas fa-hat-cowboy"></i><b>Manager's Info Here</b></button></a>&nbsp;&nbsp;<br><br>
+          <a href="{% url 'customer' %}"><button class="btn"><i class="fas fa-user-check"></i><b> Customer's Info Here</b></button></a>&nbsp;&nbsp;  
+          {% endblock %}
+          {% block content1 %}  {% endblock %}
+        </div> 
+    </div>
+    {% block content2 %}  {% endblock %}
+    <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" data-auto-replace-svg="nest"></script>
+</body>
+</html>
